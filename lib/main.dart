@@ -65,9 +65,9 @@ class _DestiniState extends State<Destini> {
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
-                  child: const Text(
-                    'Choice 1',
-                    style: TextStyle(
+                  child: Text(
+                    storyBrain.getChoice1(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
                     ),
@@ -86,9 +86,9 @@ class _DestiniState extends State<Destini> {
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
                   ),
-                  child: const Text(
-                    'Choice 2',
-                    style: TextStyle(
+                  child: Text(
+                    storyBrain.getChoice2(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
                     ),
