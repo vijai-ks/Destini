@@ -29,6 +29,28 @@ class _DestiniState extends State<Destini> {
           ),
         ),
       ),
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+          constraints: const BoxConstraints.expand(),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                flex: 12,
+                child: Center(
+                  child: Text(
+                    'Story text will go there',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
