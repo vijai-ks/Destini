@@ -7,6 +7,7 @@ void main() {
   ));
 }
 
+// Creates StoryBrain object
 StoryBrain storyBrain = StoryBrain();
 
 class Destini extends StatefulWidget {

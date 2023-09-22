@@ -35,18 +35,22 @@ class StoryBrain {
         choice2: '')
   ];
 
+  // This function returns the corresponding story title
   String getStory() {
     return _storyData[_storyNumber].storyTitle;
   }
 
+  // This function returns the choice1 text
   String getChoice1() {
     return _storyData[_storyNumber].choice1;
   }
 
+  // This function returns the choice2 text
   String getChoice2() {
     return _storyData[_storyNumber].choice2;
   }
 
+  // Navigates to the next story according to the user choice selection
   void nextStory(int choiceNumber) {
     if (choiceNumber == 1 && _storyNumber == 0) {
       _storyNumber = 2;
@@ -63,10 +67,12 @@ class StoryBrain {
     }
   }
 
+  // It restarts to the first story
   void restart() {
     _storyNumber = 0;
   }
 
+  // It helps to restart to the first story after finish
   bool isRestart() {
     if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
       return true;
