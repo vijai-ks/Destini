@@ -60,7 +60,9 @@ class _DestiniState extends State<Destini> {
                 flex: 2,
                 child: TextButton(
                   onPressed: () {
-                    print(1);
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
@@ -81,7 +83,9 @@ class _DestiniState extends State<Destini> {
                 flex: 2,
                 child: TextButton(
                   onPressed: () {
-                    print(1);
+                    setState(() {
+                      storyBrain.nextStory(2);
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
