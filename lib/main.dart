@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'storyBrain.dart';
 
 void main() {
   runApp(const MaterialApp(
     home: Destini(),
   ));
 }
+
+StoryBrain storyBrain = StoryBrain();
 
 class Destini extends StatefulWidget {
   const Destini({super.key});
@@ -42,12 +45,12 @@ class _DestiniState extends State<Destini> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Expanded(
+              Expanded(
                 flex: 12,
                 child: Center(
                   child: Text(
-                    'Story text will go there',
-                    style: TextStyle(
+                    storyBrain.getStory(),
+                    style: const TextStyle(
                       fontSize: 25.0,
                     ),
                   ),
