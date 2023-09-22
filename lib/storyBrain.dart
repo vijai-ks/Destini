@@ -66,4 +66,12 @@ class StoryBrain {
   void restart() {
     _storyNumber = 0;
   }
+
+  bool isRestart() {
+    if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

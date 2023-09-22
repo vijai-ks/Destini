@@ -17,6 +17,16 @@ class Destini extends StatefulWidget {
 }
 
 class _DestiniState extends State<Destini> {
+  void checkAndUpdateStory(int storyNumber) {
+    setState(() {
+      if (storyBrain.isRestart() == false) {
+        storyBrain.restart();
+      } else {
+        storyBrain.nextStory(storyNumber);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +71,7 @@ class _DestiniState extends State<Destini> {
                 child: TextButton(
                   onPressed: () {
                     setState(() {
-                      storyBrain.nextStory(1);
+                      checkAndUpdateStory(1);
                     });
                   },
                   style: TextButton.styleFrom(
@@ -81,20 +91,21 @@ class _DestiniState extends State<Destini> {
               ),
               Expanded(
                 flex: 2,
-                child: TextButton(
-                  onPressed: () {
-                    setState(() {
-                      storyBrain.nextStory(2);
-                    });
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                  ),
-                  child: Text(
-                    storyBrain.getChoice2(),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
+                child: Visibility(
+                  visible: storyBrain.isRestart(),
+                  child: TextButton(
+                    onPressed: () {
+                      checkAndUpdateStory(2);
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: Text(
+                      storyBrain.getChoice2(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),
