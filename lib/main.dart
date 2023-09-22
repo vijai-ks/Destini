@@ -33,10 +33,10 @@ class _DestiniState extends State<Destini> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
           constraints: const BoxConstraints.expand(),
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
+              const Expanded(
                 flex: 12,
                 child: Center(
                   child: Text(
@@ -46,7 +46,20 @@ class _DestiniState extends State<Destini> {
                     ),
                   ),
                 ),
-              )
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    print(1);
+                  },
+                  child: const Text(
+                    'Choice 1',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
