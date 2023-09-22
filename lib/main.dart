@@ -48,10 +48,14 @@ class _DestiniState extends State<Destini> {
                 ),
               ),
               Expanded(
+                flex: 2,
                 child: TextButton(
                   onPressed: () {
                     print(1);
                   },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
                   child: const Text(
                     'Choice 1',
                     style: TextStyle(
