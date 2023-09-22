@@ -59,6 +59,7 @@ class _DestiniState extends State<Destini> {
                   child: const Text(
                     'Choice 1',
                     style: TextStyle(
+                      color: Colors.white,
                       fontSize: 20.0,
                     ),
                   ),
@@ -79,6 +80,7 @@ class _DestiniState extends State<Destini> {
                   child: const Text(
                     'Choice 2',
                     style: TextStyle(
+                      color: Colors.white,
                       fontSize: 20.0,
                     ),
                   ),
