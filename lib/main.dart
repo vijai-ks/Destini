@@ -64,6 +64,26 @@ class _DestiniState extends State<Destini> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                flex: 2,
+                child: TextButton(
+                  onPressed: () {
+                    print(1);
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    'Choice 2',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
