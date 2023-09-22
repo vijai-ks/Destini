@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'storyBrain.dart';
 
 void main() {
   runApp(const MaterialApp(
     home: Destini(),
   ));
 }
+
+StoryBrain storyBrain = StoryBrain();
 
 class Destini extends StatefulWidget {
   const Destini({super.key});
@@ -14,6 +17,16 @@ class Destini extends StatefulWidget {
 }
 
 class _DestiniState extends State<Destini> {
+  void checkAndUpdateStory(int storyNumber) {
+    setState(() {
+      if (storyBrain.isRestart() == false) {
+        storyBrain.restart();
+      } else {
+        storyBrain.nextStory(storyNumber);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +55,12 @@ class _DestiniState extends State<Destini> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Expanded(
+              Expanded(
                 flex: 12,
                 child: Center(
                   child: Text(
-                    'Story text will go there',
-                    style: TextStyle(
+                    storyBrain.getStory(),
+                    style: const TextStyle(
                       fontSize: 25.0,
                     ),
                   ),
@@ -57,14 +70,16 @@ class _DestiniState extends State<Destini> {
                 flex: 2,
                 child: TextButton(
                   onPressed: () {
-                    print(1);
+                    setState(() {
+                      checkAndUpdateStory(1);
+                    });
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
                   ),
-                  child: const Text(
-                    'Choice 1',
-                    style: TextStyle(
+                  child: Text(
+                    storyBrain.getChoice1(),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
                     ),
@@ -76,18 +91,21 @@ class _DestiniState extends State<Destini> {
               ),
               Expanded(
                 flex: 2,
-                child: TextButton(
-                  onPressed: () {
-                    print(1);
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                  ),
-                  child: const Text(
-                    'Choice 2',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
+                child: Visibility(
+                  visible: storyBrain.isRestart(),
+                  child: TextButton(
+                    onPressed: () {
+                      checkAndUpdateStory(2);
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: Text(
+                      storyBrain.getChoice2(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),
